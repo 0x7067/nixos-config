@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./unstable.nix
+      ./fonts.nix
       <home-manager/nixos>
     ];
 
@@ -98,6 +99,7 @@
       wget
       spectacle
       discord
+      neofetch
     ];
   };
   
