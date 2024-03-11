@@ -1,17 +1,18 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./unstable.nix
-      ./fonts.nix
-      <home-manager/nixos>
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./unstable.nix
+    ./fonts.nix
+    <home-manager/nixos>
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -88,7 +89,7 @@
   users.users.pedro = {
     isNormalUser = true;
     description = "Pedro Guimarães";
-    extraGroups = [ "networkmanager" "wheel" "adbuser" ];
+    extraGroups = ["networkmanager" "wheel" "adbuser"];
     packages = with pkgs; [
       firefox
       telegram-desktop
@@ -100,10 +101,15 @@
       spectacle
       discord
       neofetch
+      htop
     ];
   };
-  
-  home-manager.users.pedro = { config, pkgs, ... }: {
+
+  home-manager.users.pedro = {
+    config,
+    pkgs,
+    ...
+  }: {
     dconf = {
       enable = true;
       settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
@@ -119,8 +125,8 @@
     programs.gh = {
       enable = true;
     };
-    
-    home.stateVersion = "23.11";    
+
+    home.stateVersion = "23.11";
   };
 
   # Steam
@@ -134,7 +140,8 @@
   fileSystems."/var/steamgames" = {
     device = "/dev/disk/by-uuid/667097c8-ee32-4d31-94f5-77ccdca664bb";
     fsType = "ext4";
-    options = [ # If you don't have this options attribute, it'll default to "defaults" 
+    options = [
+      # If you don't have this options attribute, it'll default to "defaults"
       # boot options for fstab. Search up fstab mount options you can use
       #"users" # Allows any user to mount and unmount
       "nofail" # Prevent system from failing if this drive doesn't mount
@@ -142,12 +149,12 @@
       "rw"
     ];
   };
-  
+
   # Android
   programs.adb = {
     enable = true;
   };
-     
+
   ## Maintenance
   # Clear nix store once a week
   nix.gc = {
@@ -163,6 +170,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    alejandra
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -191,5 +199,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }

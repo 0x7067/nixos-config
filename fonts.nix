@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
@@ -32,9 +35,9 @@
       hinting.enable = true;
       hinting.autohint = true;
       defaultFonts = {
-        monospace = [ "Source Code Pro" ];
-        sansSerif = [ "Source Sans Pro" ];
-        serif = [ "Source Serif Pro" ];
+        monospace = ["Source Code Pro"];
+        sansSerif = ["Source Sans Pro"];
+        serif = ["Source Serif Pro"];
       };
     };
   };
