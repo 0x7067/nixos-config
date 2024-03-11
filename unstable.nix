@@ -6,5 +6,6 @@ in {
   users.users.pedro.packages = with pkgs; [
     unstable.android-studio
     unstable.spotify
+    unstable.vscode
   ];
 }
