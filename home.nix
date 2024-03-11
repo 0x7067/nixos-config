@@ -18,6 +18,13 @@
     userName = "Pedro Guimarães";
     userEmail = "moisespedro15@gmail.com";
     lfs.enable = true;
+
+    extraConfig = {
+      init.defaultBranch = "main";
+      push = {
+        autoSetupRemote = true;
+      };
+    };
   };
 
   programs.gh = {
