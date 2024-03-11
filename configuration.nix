@@ -97,11 +97,13 @@
       git
       git-lfs
       slack
-      wget
       spectacle
       discord
       neofetch
-      htop
+      # TODO: Move the 3 packages below this message to a separate file
+      libnotify
+      glib
+      mako
     ];
   };
 
@@ -171,6 +173,8 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     alejandra
+    htop
+    wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

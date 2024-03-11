@@ -12,9 +12,6 @@
 # A rebuild script that commits on a successful build
 set -e
 
-# cd to your config dir
-#pushd ~/dotfiles/nixos/
-
 # Edit your config
 nano -ix configuration.nix
 
@@ -35,8 +32,5 @@ current=$(nixos-rebuild list-generations | grep current)
 # Commit all changes witih the generation metadata
 git commit -am "$current"
 
-# Back to where you were
-#popd
-
 # Notify all OK!
-#notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
+notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
