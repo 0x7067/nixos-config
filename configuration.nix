@@ -9,7 +9,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./unstable.nix
     ./fonts.nix
     <home-manager/nixos>
   ];
@@ -100,6 +99,9 @@
       spectacle
       discord
       neofetch
+      android-studio
+      spotify
+      vscode
       # TODO: Move the 3 packages below this message to a separate file
       libnotify
       glib
@@ -128,7 +130,7 @@
       enable = true;
     };
 
-    home.stateVersion = "23.11";
+    home.stateVersion = "24.05";
   };
 
   # Steam
