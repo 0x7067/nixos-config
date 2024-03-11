@@ -10,9 +10,9 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./fonts.nix
-    <home-manager/nixos>
   ];
 
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -107,30 +107,6 @@
       glib
       mako
     ];
-  };
-
-  home-manager.users.pedro = {
-    config,
-    pkgs,
-    ...
-  }: {
-    dconf = {
-      enable = true;
-      settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-    };
-
-    programs.git = {
-      enable = true;
-      userName = "Pedro Guimarães";
-      userEmail = "moisespedro15@gmail.com";
-      lfs.enable = true;
-    };
-
-    programs.gh = {
-      enable = true;
-    };
-
-    home.stateVersion = "24.05";
   };
 
   # Steam
