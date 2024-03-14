@@ -147,16 +147,16 @@
   nixpkgs.config.allowUnfree = true;
 
   # Automatic updates
-  system.autoUpgrade = {
-    enable = true;
-    flags = [
-      "--update-input"
-      "nixpkgs"
-      "-L" # print build logs
-    ];
-    dates = "02:00";
-    randomizedDelaySec = "45min";
-  };
+  # system.autoUpgrade = {
+  #   enable = true;
+  #   flags = [
+  #     "--update-input"
+  #     "nixpkgs"
+  #     "-L" # print build logs
+  #   ];
+  #   dates = "02:00";
+  #   randomizedDelaySec = "45min";
+  # };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
